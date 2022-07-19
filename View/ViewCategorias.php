@@ -6,9 +6,9 @@ class ViewCategorias{
         $this->smarty=new Smarty();
     }
 
-    function getCategorias($item){
-        $this->smarty->assign('item', $item);
-        $this->smarty->display('templates/main.tpl');
+    function getCategorias($categorias){
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('templates/listCategoria.tpl');
     }
  
 
