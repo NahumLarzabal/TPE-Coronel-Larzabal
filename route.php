@@ -17,20 +17,29 @@ $params = explode('/', $action);
 
 //$itemsController = new ControllerItems();
 $categoriaController = new ControllerCategorias();
-$categoriaItems= new ControllerItems();
+$itemsController= new ControllerItems();
 
 // determina que camino seguir según la acción
  switch ($params[0]) {
     case 'home': 
-        $categoriaItems->getHome();
+        $itemsController->getHome();
         break;
     case 'categorias': 
       $categoriaController->getCategorias();
       break;
-    case 'items': 
-        $categoriaItems->getItems();
+    case 'items':
+        if(isset($params[1])){
+            $itemsController->getItem($params[1]);
+        }else{
+
+            $itemsController->getItems();
+        }
         break;
- 
+    case 'search':
+        if(($params[1]=="categoria")&&(isset($params[2]))){
+            $itemsController->searchCategoria($params[2]);
+        }
+        break;
    default: 
       echo('404 Page not found'); 
       break;

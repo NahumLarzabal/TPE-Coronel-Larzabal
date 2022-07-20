@@ -14,8 +14,17 @@ class ControllerItems{
         $this->view->getItems($item);
 
     }
+    function getItem($id){
+        $item=$this->model->getItem($id);
+        $this->view->getItem($item);
+    }
     function getHome(){
         $this->view->getHome();
+    }
+    function searchCategoria($id){
+        $item=$this->model->searchCategoria($id);
+        $this->view->getSearchCategorias($item);
+
     }
 }
 

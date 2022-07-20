@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2022 a las 02:17:16
+-- Tiempo de generación: 20-07-2022 a las 23:10:34
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `id` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
   `categoria` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -36,14 +36,16 @@ CREATE TABLE `categorias` (
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`id`, `categoria`) VALUES
+INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (1, 'Perifericos'),
 (2, 'Monitores'),
 (3, 'NootBooks'),
 (4, 'Memorias Ram'),
 (5, 'Gabinetes'),
 (6, 'Discos'),
-(7, 'Mathers');
+(7, 'Mathers'),
+(8, 'Placa de Video'),
+(9, 'Microprocesadores');
 
 -- --------------------------------------------------------
 
@@ -80,8 +82,14 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `tipo_item`, `marca`, `descripcion`, `precio`, `id_categoria`, `imagen`) VALUES
-(1, 'Memoria 4 GB', 'Kingston', '', 4500, 4, NULL),
-(2, 'Memoria 8 GB', 'Kingston', '', 9000, 4, NULL);
+(1, '4 GB', 'Kingston', '', 4500, 4, NULL),
+(2, '8 GB', 'Kingston', '', 9000, 4, NULL),
+(3, 'Placa 8 GB', 'Nvidia', '', 127890, 8, NULL),
+(4, 'Placa Grafica 4 GB', 'Gforse', '', 100000, 8, NULL),
+(5, 'i5 9600', 'Intel', '', 70000, 9, NULL),
+(6, 'ry5 5600', 'Ryzen', '', 70000, 9, NULL),
+(7, '18 pulgadas', 'Samsung', '', 14566, 2, NULL),
+(8, '24 pulgadas', 'LG', '', 18000, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,7 @@ INSERT INTO `users` (`id`, `email`, `name_user`, `password`, `tipoUser`) VALUES
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `comentarios`
@@ -143,7 +151,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -155,7 +163,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -178,7 +186,7 @@ ALTER TABLE `comentarios`
 -- Filtros para la tabla `items`
 --
 ALTER TABLE `items`
-  ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

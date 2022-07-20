@@ -1,10 +1,4 @@
 {include file='templates/html.tpl'}
-            <div class="content-top-page">
-            <div class="content-title">
-                <h1>Filtro:</h1>
-            </div>
-            {include file='templates/formSearch.tpl'}
-        </div>
 <div class="main-table">
 <table class="table">
     <thead>

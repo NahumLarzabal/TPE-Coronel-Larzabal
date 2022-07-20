@@ -10,9 +10,17 @@ class ViewItems{
         $this->smarty->assign('item', $item);
         $this->smarty->display('templates/listItems.tpl');
     }
+    function getItem($item){
+        $this->smarty->assign('item',$item);
+        $this->smarty->display('templates/detailItem.tpl');
+    }
     function getHome(){
         $this->smarty->assign('title', 'Bienvenido a nuestro sitio web');
         $this->smarty->display('templates/home.tpl');
+    }
+    function getSearchCategorias($item){
+        $this->smarty->assign('item',$item);
+        $this->smarty->display('templates/search.tpl');
     }
 
     }
