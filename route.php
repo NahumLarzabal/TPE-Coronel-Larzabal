@@ -36,8 +36,8 @@ $itemsController= new ControllerItems();
         }
         break;
     case 'search':
-        if(($params[1]=="categoria")&&(isset($params[2]))){
-            $itemsController->searchCategoria($params[2]);
+        if(($params[1]=="categoria")){
+            $itemsController->searchCategoria();
         }
         break;
    default: 

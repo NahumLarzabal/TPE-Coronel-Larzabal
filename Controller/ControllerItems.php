@@ -21,10 +21,11 @@ class ControllerItems{
     function getHome(){
         $this->view->getHome();
     }
-    function searchCategoria($id){
-        $item=$this->model->searchCategoria($id);
-        $this->view->getSearchCategorias($item);
-
+    function searchCategoria(){
+        if (!empty($_POST['categoriaINP']) && isset($_POST['categoriaINP'])){
+            $item = $this->model->searchCategoria($_POST['categoriaINP']);
+            $this->view->getSearchCategorias($item);
+        }
     }
 }
 
