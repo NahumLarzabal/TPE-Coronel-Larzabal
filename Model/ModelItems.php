@@ -23,9 +23,7 @@ class ModelItems{
         $item = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $item;
     }
-    function getSearchCategoria($item){
-        
-    }
+    
 
 }
 
